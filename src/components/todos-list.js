@@ -5,7 +5,9 @@ import ToDosListItem from './todos-list-item';
 
  export default class ToDosList extends React.Component{
  	renderItems(){
- 		return _.map(this.props.todos, (todo,index)=> <ToDosListItem key={index} {...todo} />);
+ 		const props = _.omit(this.props,'todos');
+
+ 		return _.map(this.props.todos, (todo,index)=> <ToDosListItem key={index} {...todo} {...props}/>);
 
 
  	}
